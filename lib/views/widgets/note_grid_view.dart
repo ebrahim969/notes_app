@@ -11,7 +11,6 @@ class NoteGridView extends StatelessWidget {
     return MasonryGridView.builder(
       itemCount: 8,
       physics:const BouncingScrollPhysics(),
-      clipBehavior: Clip.none,
       gridDelegate:const SliverSimpleGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemBuilder: (context, index)
     {
