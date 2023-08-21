@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants/color_constant.dart';
+import '../constants/constant.dart';
 import 'widgets/add_note_bottom_sheet.dart';
 import 'widgets/home_page_body.dart';
 

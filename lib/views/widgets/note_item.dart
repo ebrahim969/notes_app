@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:note_app/views/edit_note_view.dart';
 import 'package:note_app/views/widgets/text_widget.dart';
 
-import '../../constants/color_constant.dart';
+import '../../constants/constant.dart';
 
 class NoteItem extends StatelessWidget {
   const NoteItem({super.key});

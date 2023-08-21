@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'constants/const.dart';
+import 'constants/constant.dart';
 import 'views/home_page.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 

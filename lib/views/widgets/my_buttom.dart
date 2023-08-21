@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:note_app/constants/color_constant.dart';
+import 'package:note_app/constants/constant.dart';
 import 'package:note_app/views/widgets/text_widget.dart';
 
 class MyButtom extends StatelessWidget {

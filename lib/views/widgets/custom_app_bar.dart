@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:note_app/views/widgets/text_widget.dart';
 
-import '../../constants/color_constant.dart';
+import '../../constants/constant.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key, required this.title, required this.icon});
