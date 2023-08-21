@@ -15,7 +15,7 @@ class HomePageBody extends StatelessWidget {
       child: Column(
           children:[
             SizedBox(height: Get.height * 0.05,),
-           const CustomAppBar(),
+           const CustomAppBar(title: "Notes", icon: Icons.search,),
            const Expanded(child: NoteGridView())
           ],
       ),
