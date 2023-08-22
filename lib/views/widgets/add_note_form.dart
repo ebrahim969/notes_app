@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:note_app/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:note_app/models/note_model.dart';
 
 import 'custom_text_feild.dart';
 import 'my_buttom.dart';
@@ -14,7 +17,6 @@ class AddNoteForm extends StatefulWidget {
 }
 
 class _AddNoteFormState extends State<AddNoteForm> {
-
   final GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String? title, subTitle;
@@ -25,30 +27,38 @@ class _AddNoteFormState extends State<AddNoteForm> {
       autovalidateMode: autovalidateMode,
       child: Column(
         children: [
-           CustomTextFeild(
+          CustomTextFeild(
             hinttext: "Title",
-            onSaved: (value){
+            onSaved: (value) {
               title = value;
             },
-            ),
-          SizedBox(height: Get.height * 0.05,),
-           CustomTextFeild(
+          ),
+          SizedBox(
+            height: Get.height * 0.05,
+          ),
+          CustomTextFeild(
             hinttext: "Content",
-             maxLines: 6,
-             onSaved: (value){
+            maxLines: 6,
+            onSaved: (value) {
               subTitle = value;
             },
-            ),
-          SizedBox(height: Get.height * 0.07,),
-          MyButtom(onTap: (){
-            if(formKey.currentState!.validate()){
+          ),
+          SizedBox(
+            height: Get.height * 0.07,
+          ),
+          MyButtom(onTap: () {
+            if (formKey.currentState!.validate()) {
               formKey.currentState!.save();
-            }else
-            {
+              NoteModel noteModel = NoteModel(
+                  title: title!,
+                  subTitle: subTitle!,
+                  color: Colors.amber.value,
+                  date: DateTime.now().toString());
+              BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+            } else {
               autovalidateMode = AutovalidateMode.always;
               setState(() {});
             }
-
           })
         ],
       ),
