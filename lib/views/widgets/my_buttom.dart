@@ -6,9 +6,10 @@ import 'package:note_app/constants/constant.dart';
 import 'package:note_app/views/widgets/text_widget.dart';
 
 class MyButtom extends StatelessWidget {
-   MyButtom({super.key ,required this.onTap});
+  const MyButtom({super.key ,required this.onTap,this.isLoading = false});
   
-  VoidCallback onTap;
+ final VoidCallback onTap;
+ final bool isLoading;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -27,7 +28,16 @@ class MyButtom extends StatelessWidget {
                   )
           ]
         ),
-        child: Center(child: textWidget(txt: "Add", fontsize: 17 , fontWeight: FontWeight.bold)),
+        child: Center(child:
+        isLoading ?
+        const SizedBox(
+          height: 25,
+          width: 25,
+           child: CircularProgressIndicator(
+            color: kPrimaryColor,
+                 ),
+         ) 
+         :textWidget(txt: "Add", fontsize: 17 , fontWeight: FontWeight.bold)),
       ),
     );
   }
