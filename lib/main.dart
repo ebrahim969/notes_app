@@ -20,12 +20,15 @@ class NoteApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.dark
+    return BlocProvider(
+      create: (context) => AddNoteCubit(),
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          brightness: Brightness.dark
+        ),
+        home:const HomePage(),
       ),
-      home:const HomePage(),
     );
   }
 }
