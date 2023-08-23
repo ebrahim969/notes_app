@@ -10,16 +10,12 @@ class NoteGridView extends StatelessWidget {
   const NoteGridView({super.key});
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<NotesCubit, NotesState>(
-      listener: (context, state) {
-        if(state is NotesImpety)
-        {
-          Center(child: textWidget(txt: "nO NOTE"),);
-        }
-      },
+    return BlocBuilder<NotesCubit, NotesState>(
       builder: (context, state) {
         List<NoteModel> notes = BlocProvider.of<NotesCubit>(context).notes?? [];
-        return MasonryGridView.builder(
+        return state is NotesImpety ?  
+        Center(child: textWidget(txt: "No notes"),)
+        : MasonryGridView.builder(
             itemCount: notes.length,
             physics: const BouncingScrollPhysics(),
             gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
