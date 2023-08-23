@@ -10,29 +10,32 @@ class AddNoteBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(
-          top: 24,
-          left: 24,
-          right: 24,
-          bottom: MediaQuery.of(context).viewInsets.bottom == 0
-              ? 16
-              : MediaQuery.of(context).viewInsets.bottom),
-      child: BlocConsumer<AddNoteCubit, AddNoteState>(
-        listener: (context, state) {
-          if (state is AddNoteSuccess) {
-            BlocProvider.of<NotesCubit>(context).fetchNotes();
-            Get.back();
-          } else if (state is AddNoteFaluier) {
-            debugPrint(state.errMessage);
-          }
-        },
-        builder: (context, state) {
-          return AbsorbPointer(
-            absorbing: state is AddNoteLoading ? true : false,
-            child: const SingleChildScrollView(child: AddNoteForm()),
-          );
-        },
+    return BlocProvider(
+      create: (context) => AddNoteCubit(),
+      child: Container(
+        padding: EdgeInsets.only(
+            top: 24,
+            left: 24,
+            right: 24,
+            bottom: MediaQuery.of(context).viewInsets.bottom == 0
+                ? 16
+                : MediaQuery.of(context).viewInsets.bottom),
+        child: BlocConsumer<AddNoteCubit, AddNoteState>(
+          listener: (context, state) {
+            if (state is AddNoteSuccess) {
+              BlocProvider.of<NotesCubit>(context).fetchNotes();
+              Get.back();
+            } else if (state is AddNoteFaluier) {
+              debugPrint(state.errMessage);
+            }
+          },
+          builder: (context, state) {
+            return AbsorbPointer(
+              absorbing: state is AddNoteLoading ? true : false,
+              child: const SingleChildScrollView(child: AddNoteForm()),
+            );
+          },
+        ),
       ),
     );
   }
