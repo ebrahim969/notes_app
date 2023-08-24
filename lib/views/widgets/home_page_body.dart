@@ -24,7 +24,7 @@ class _HomePageBodyState extends State<HomePageBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(26),
+      padding: const EdgeInsets.all(16),
       child: Column(
           children:[
             SizedBox(height: Get.height * 0.05,),

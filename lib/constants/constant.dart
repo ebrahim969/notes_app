@@ -7,6 +7,7 @@ Color kOpacityColor = Colors.black.withOpacity(.5);
 const kNoteBox = "note_box";
 List<Color> colors = 
   const[
+    Color(0x10000000),
     Color(0xffe63946),
     Color(0xfff1faee),
     Color(0xffa8dadc),

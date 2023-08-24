@@ -16,6 +16,8 @@ class NoteGridView extends StatelessWidget {
         return state is NotesImpety ?  
         Center(child: textWidget(txt: "No notes"),)
         : MasonryGridView.builder(
+          mainAxisSpacing: 6,
+          crossAxisSpacing: 6,
             itemCount: notes.length,
             physics: const BouncingScrollPhysics(),
             gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
