@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_app/cubits/add_note_cubit/add_note_cubit.dart';
 
+import '../../constants/constant.dart';
+
 class ColorItem extends StatelessWidget {
   const ColorItem({super.key, required this.isClicked, required this.color});
  
  final bool isClicked;
- final MaterialColor color;
+ final Color color;
   @override
   Widget build(BuildContext context) {
     return isClicked ? 
@@ -43,14 +45,7 @@ class _ColorsListViewState extends State<ColorsListView> {
 
   int currentIndex = 0;
 
-  List<MaterialColor> colors = 
-  [
-    Colors.amber,
-    Colors.indigo,
-    Colors.green,
-    Colors.cyan,
-    Colors.red
-  ];
+  
   @override
   Widget build(BuildContext context) {
     return SizedBox(

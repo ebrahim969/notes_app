@@ -19,30 +19,32 @@ class NoteItem extends StatelessWidget {
       onTap: (){
         Get.to(()=>  EditNoteView(notes: notes,));
       },
+      onDoubleTap: () {
+        notes.delete();
+        BlocProvider.of<NotesCubit>(context).fetchNotes();
+      },
       child: Container(
         margin:const EdgeInsets.all(8),
-        padding:const EdgeInsets.only(top: 12, bottom: 12),
+        padding:const EdgeInsets.all(12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           color: Color(notes.color),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ListTile(
-              title: textWidget(txt: notes.title, color: kMainColor, fontsize: 16),
-              subtitle: Padding(
-                padding: const EdgeInsets.only(top: 16, bottom: 16),
-                child: textWidget(txt: notes.subTitle, color:kOpacityColor, fontsize: 12),
-              ),
-              trailing: IconButton(onPressed: (){
-                notes.delete();
-                BlocProvider.of<NotesCubit>(context).fetchNotes();
-              },icon :const Icon(FontAwesomeIcons.trash, size: 16) , color: kMainColor,),
-            ),
+             textWidget(txt: notes.title, color: kMainColor, fontsize: 17),
+            const SizedBox(height: 10,),
+              textWidget(txt: notes.subTitle, color:kOpacityColor, fontsize: 12),
+            const SizedBox(height: 15,),
             Padding(
               padding: const EdgeInsets.only(right: 16),
-              child: textWidget(txt:notes.date, color: kOpacityColor, fontsize: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  textWidget(txt:notes.date, color: kOpacityColor, fontsize: 8),
+                ],
+              ),
             ),
           ],
         ),
@@ -50,3 +52,4 @@ class NoteItem extends StatelessWidget {
     );
   }
 }
+
