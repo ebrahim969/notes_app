@@ -17,7 +17,7 @@ class NoteItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Get.to(()=> const EditNoteView());
+        Get.to(()=>  EditNoteView(notes: notes,));
       },
       child: Container(
         margin:const EdgeInsets.all(8),

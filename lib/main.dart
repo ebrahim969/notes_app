@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:note_app/simple_bloc_observer.dart';
 import 'constants/constant.dart';
-import 'cubits/add_note_cubit/add_note_cubit.dart';
 import 'cubits/notes_cubit/notes_cubit.dart';
 import 'models/note_model.dart';
 import 'views/home_page.dart';
