@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:note_app/simple_bloc_observer.dart';
+import 'package:note_app/splash_view.dart';
 import 'constants/constant.dart';
 import 'cubits/notes_cubit/notes_cubit.dart';
 import 'models/note_model.dart';
-import 'views/home_page.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 void main() async{
   Bloc.observer = SimpleBlocObserver();
@@ -27,7 +27,7 @@ class NoteApp extends StatelessWidget {
         theme: ThemeData(
           brightness: Brightness.dark
         ),
-        home:const HomePage(),
+        home:const SplashView(),
       ),
     );
   }

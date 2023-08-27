@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:note_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:note_app/views/widgets/note_grid_view.dart';
 import 'custom_app_bar.dart';
-import 'note_item.dart';
 
 
 class HomePageBody extends StatefulWidget {

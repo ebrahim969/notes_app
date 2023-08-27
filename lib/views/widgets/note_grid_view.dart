@@ -14,7 +14,7 @@ class NoteGridView extends StatelessWidget {
       builder: (context, state) {
         List<NoteModel> notes = BlocProvider.of<NotesCubit>(context).notes?? [];
         return state is NotesImpety ?  
-        Center(child: textWidget(txt: "No notes"),)
+        const EmptyNoteView()
         : MasonryGridView.builder(
           mainAxisSpacing: 6,
           crossAxisSpacing: 6,
@@ -26,6 +26,25 @@ class NoteGridView extends StatelessWidget {
               return NoteItem(notes: notes[index],);
             });
       },
+    );
+  }
+}
+
+class EmptyNoteView extends StatelessWidget {
+  const EmptyNoteView({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Image.asset("assets/writeNote.png", height: 100,),
+        const SizedBox(height: 10,),
+        textWidget(txt: "Your notes is empty"),
+      ],
     );
   }
 }
